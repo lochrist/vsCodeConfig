@@ -1,0 +1,57 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+    "files.exclude": {
+        "*.log": true,
+        "*.min.js": true,
+        "*.orig": true,
+        "*.bsi": true,
+        "*.font": true,
+        "*.svg": true,
+        "sqlite3.c": true,
+        "disclaimer*.html": true,
+        "*.diff": true,
+        "*.user": true,
+        "AssemblyInfo.cs": true,
+        "*.fbx": true,
+        "**/.git": true,
+        "**/.svn": true,
+        "**/build": true,
+        "**/output": true,
+        "**/packages": true,
+        "**/.DS_Store": true,
+        "**/.nuget": true,
+        "**/obj": true,
+        "**/bin": true,
+        "**/Debug": true,
+        "**/Release": true,
+        "**/backend": true,
+        "**/docs": true,
+        "**/dcc": true,
+        "**/cmake": true,
+        "**/internal": true,
+        "tests": true,
+        "**/runtime": true,
+        "**/tools": true
+    },
+
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/3rdparty": true,
+        "**/bower_components": true,
+        "tools/console": true,
+        "tools/flow_editor": true,
+        "tools/localizer": true,
+        "tools/network_analyzer": true,
+        "tools/patch_builder": true,
+        "tools/timpani": true,
+        "tools/tool_center": true,
+        "tools/winforms_app_common": true,
+        "tools/view_common": true,
+        "tools/json_merge": true
+    },
+    "files.associations": {
+        "qdesktopservices": "cpp",
+        "qdir": "cpp",
+        "qlocalserver": "cpp"
+    }
+}

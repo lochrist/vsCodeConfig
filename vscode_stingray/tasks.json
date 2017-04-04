@@ -1,0 +1,97 @@
+/*
+${workspaceRoot} the path of the folder opened in VS Code
+${workspaceRootFolderName} the name of the folder opened in VS Code without any slashes (/)
+${file} the current opened file
+${relativeFile} the current opened file relative to workspaceRoot
+${fileBasename} the current opened file's basename
+${fileBasenameNoExtension} the current opened file's basename without the extension
+${fileDirname} the current opened file's dirname
+${fileExtname} the current opened file's extension
+${cwd} the task runner's current working directory on startup
+*/
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "0.1.0",
+    "tasks": [
+        {
+            "taskName": "build",
+            "command": "ruby",
+            "args": ["make.rb", "--no-use-editor-templates"],
+            "isBuildCommand": true
+        },
+        {
+            "taskName": "check-for-reviewers",
+            "command": "ruby",
+            "args": ["./tools/command_line/check-for-reviewers.rb"],
+            "isShellCommand": true
+        },
+		{
+            "taskName": "run editor",
+            "command": "./build/binaries/editor/stingray_editor.exe",
+            "showOutput": "always"
+        },
+        {
+            "taskName": "run engine toolchain",
+            "command": "./build/binaries/engine/win64/dev/stingray_win64_dev.exe",
+            "args": ["--toolchain", "${workspaceRoot}/build/binaries"],
+            "showOutput": "always"
+        },
+        {
+            "taskName": "lint",
+            "command": "ruby",
+            "args": ["./tools/command_line/lint.rb", "-i"],
+            "showOutput": "always",
+            "isShellCommand": true
+        },
+        {
+            "taskName": "jshint",
+            "command": "ruby",
+            "args": ["./tools/command_line/js-hint.rb"],
+            "showOutput": "always"
+        },
+        {
+            "taskName": "build editor",
+            "command": "C:/Program Files (x86)/MSBuild/14.0/Bin/msbuild",
+            "args": [
+                "${workspaceRoot}/build/editor/win64/stingray_editor_win64.sln",
+                "/p:Configuration=Dev;GenerateFullPaths=true;WarningLevel=0",
+                "/maxcpucount",
+                "/verbosity:minimal"
+            ],
+            "echoCommand": true,
+            "isBuildCommand": true,
+            "showOutput": "always",
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "taskName": "build engine",
+            "command": "C:/Program Files (x86)/MSBuild/14.0/Bin/msbuild",
+            "args": [
+                "${workspaceRoot}/build/engine/win64/stingray_engine_win64.sln",
+                "/p:Configuration=Dev;GenerateFullPaths=true;WarningLevel=0",
+                "/maxcpucount",
+                "/verbosity:minimal"
+            ],
+            "echoCommand": true,
+            "isBuildCommand": true,
+            "showOutput": "always",
+            "problemMatcher": "$msCompile"
+        },
+
+        // Open Visual Studio solutions
+        {
+            "taskName": "open editor solution",
+            "command": "C:/Program Files (x86)/Microsoft Visual Studio 14.0/Common7/IDE/devenv.exe",
+            "args": ["./build/editor/win64/stingray_editor_win64.sln"],
+            "showOutput": "never",
+            "isShellCommand": true
+        },
+        {
+            "taskName": "open engine solution",
+            "command": "C:/Program Files (x86)/Microsoft Visual Studio 14.0/Common7/IDE/devenv.exe",
+            "args": ["./build/engine/win64/stingray_engine_win64.sln"],
+            "showOutput": "never"
+        }
+    ]
+}
