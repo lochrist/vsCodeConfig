@@ -1,5 +1,7 @@
 // Place your settings in this file to overwrite the default settings
 {
+    "files.autoSave": "onFocusChange",
+    
     "editor.fontSize": 14,
     "editor.renderWhitespace": "all",
     "editor.renderControlCharacters": true,
