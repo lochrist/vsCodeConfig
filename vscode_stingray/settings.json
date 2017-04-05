@@ -14,6 +14,8 @@
         "AssemblyInfo.cs": true,
         "*.fbx": true,
         "**/.git": true,
+        "**/.github": true,
+        "**/.idea": true,
         "**/.svn": true,
         "**/build": true,
         "**/output": true,
