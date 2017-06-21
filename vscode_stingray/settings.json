@@ -14,8 +14,6 @@
         "AssemblyInfo.cs": true,
         "*.fbx": true,
         "**/.git": true,
-        "**/.github": true,
-        "**/.idea": true,
         "**/.svn": true,
         "**/build": true,
         "**/output": true,
@@ -55,5 +53,6 @@
         "qdesktopservices": "cpp",
         "qdir": "cpp",
         "qlocalserver": "cpp"
-    }
+    },
+    "typescript.tsdk": "./editor/node_modules/typescript/lib"
 }

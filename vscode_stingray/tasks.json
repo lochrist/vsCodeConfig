@@ -21,12 +21,24 @@ ${cwd} the task runner's current working directory on startup
             "isBuildCommand": true
         },
         {
+            "taskName": "tspw",
+            "command": "node",
+            "args": [
+                "${workspaceRoot}/editor/node_modules/tspw/bin/tspw",
+                "--root", "${workspaceRoot}/editor",
+                "--tsc", "${workspaceRoot}/editor/node_modules/typescript/bin/tsc"
+            ],
+            "isBuildCommand": true,
+            "showOutput": "always",
+            "problemMatcher": "$tsc-watch"
+        },
+        {
             "taskName": "check-for-reviewers",
             "command": "ruby",
             "args": ["./tools/command_line/check-for-reviewers.rb"],
             "isShellCommand": true
         },
-		{
+        {
             "taskName": "run editor",
             "command": "./build/binaries/editor/stingray_editor.exe",
             "showOutput": "always"
